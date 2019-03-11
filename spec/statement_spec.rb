@@ -9,7 +9,9 @@ describe Statement do
 
   context '#date' do
     it 'Can print the current date' do
-      expect { subject.get_date }.to output("2019-03-11").to_stdout
+      @date = Time.now
+      allow(Time).to receive(:now).and_return(@date)
+      expect { subject.get_date }.to output(@date.strftime('%Y-%m-%d')).to_stdout
     end
   end
 end
