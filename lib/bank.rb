@@ -9,6 +9,10 @@ attr_reader :balance
     @balance += amount
   end
 
+def withdrawl(amount)
+    @balance -= amount
+  end
+
   def printBalance
     'date || credit || debit || balance'
   end
