@@ -1,4 +1,7 @@
-require'./lib/bank.rb'
+require'bank.rb'
 
-RSpec.describe do
+describe Bank do 
+  it "Can print bank statement title" do
+  expect {subject.printBalance().to output('date || credit || debit || balance')} 
+  end 
 end
