@@ -1,5 +1,6 @@
 require 'statement'
 
+
 describe Statement do
   context '.print_balance' do
     it 'Can print bank statement title' do
@@ -15,9 +16,13 @@ describe Statement do
     end
   end
 
-  context '.format_document' do
-    xit 'can print a statement in the correct format' do
+  context '#format_document' do
+    xit 'can print a transaction in the correct format' do
       expect { subject.format_statement }.to output('correct').to_stdout
     end
+  end
+
+  it 'can print each transaction in the correct format' do 
+  
   end
 end

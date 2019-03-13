@@ -14,15 +14,21 @@ describe Account do
       bank = Account.new
       allow(bank).to receive(:date).and_return(day)
       bank.deposit(an_amount)
-      expect(bank.transaction).to eq([[day, an_amount, bank.balance]])
-      
+      expect(bank.transaction).to eq([[day, an_amount, '', bank.balance]])
     end
   end
 
   context '#withdrawl' do
-    it 'Can withdrawl an amount into the account' do
+    it 'Can withdraw an amount into the account' do
       bank = Account.new
       expect { bank.withdrawl(200) }.to change { bank.balance }.by(-200)
+    end
+
+    it 'upon withdrawl user can return a transaction' do 
+      bank = Account.new
+      allow(bank).to receive(:date).and_return(day)
+      bank.withdrawl(an_amount)
+      expect(bank.transaction).to eq([[day, '', an_amount, bank.balance]])
     end
   end
 

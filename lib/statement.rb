@@ -1,4 +1,6 @@
+require_relative 'helper'
 class Statement
+include Helper 
 
   def print_balance
     print "date || credit || debit || balance"
@@ -10,6 +12,6 @@ class Statement
   end
 
   def format_statement
-    print_balance 
+    print_balance
   end
 end
