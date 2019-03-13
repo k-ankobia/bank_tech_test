@@ -3,7 +3,7 @@ require 'statement'
 describe Statement do
   context '.print_balance' do
     it 'Can print bank statement title' do
-      expect { subject.print_balance }.to output("date || credit || debit || balance").to_stdout
+      expect { subject.print_balance }.to output('date || credit || debit || balance').to_stdout
     end
   end
 
@@ -11,7 +11,13 @@ describe Statement do
     it 'Can print the current date' do
       @date = Time.now
       allow(Time).to receive(:now).and_return(@date)
-      expect { subject.get_date }.to output(@date.strftime('%Y-%m-%d')).to_stdout
+      expect { subject.date }.to output(@date.strftime('%Y-%m-%d')).to_stdout
+    end
+  end
+
+  context '.format_document' do
+    xit 'can print a statement in the correct format' do
+      expect { subject.format_statement }.to output('correct').to_stdout
     end
   end
 end
